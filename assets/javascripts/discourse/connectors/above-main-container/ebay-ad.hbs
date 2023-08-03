@@ -1,0 +1,27 @@
+{{#if valid}}
+
+  <div class="ebay-ad">
+
+  <div class="affiliate-info">
+    <p title="When you click links to various merchants on this site and make a purchase, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network.">
+    ADVERTISEMENT</p>
+  </div>
+
+  <div class="ebay-ad-content">
+    <div class="ebay-ad-thumbnail">
+      <img class="ebay-ad-thumbnail-img" src="{{image_url}}" alt="{{title}}">
+    </div>
+    <div class="ebay-ad-title">
+      <h2>{{title}}</h2>
+    </div>
+    <div class="ebay-ad-price">
+      {{price}}
+    </div>
+    <div class="ebay-ad-seller">
+      {{seller_id}} ({{feedback_number}})
+    </div>
+  </div>
+
+  </div>
+
+{{/if}}
