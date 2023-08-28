@@ -25,11 +25,19 @@ function generateAd(api, siteSettings) {
       else{
         component.setProperties({
           "valid" : true,
+          "legacy_id": result.legacy_id,
           "title": result.title,
-          "price":result.price,
+          "price": parseFloat(result.price).toFixed(2),
+          "currency": result.currency,
+          "location": result.location,
+
           "image_url":result.image_url,
-          "seller_id": result.seller_id,
-          "feedback_number": result.feedback_number});
+          "seller": result.seller,
+          "feedback_score": result.feedback_score,
+          "feedback_percent": result.feedback_percent,
+          "epn": result.epn_id
+        });
+
       }
     
     }).catch(popupAjaxError);

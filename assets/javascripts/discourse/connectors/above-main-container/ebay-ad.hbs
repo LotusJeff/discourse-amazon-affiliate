@@ -2,25 +2,39 @@
 
   <div class="ebay-ad">
 
-  <div class="affiliate-info">
-    <p title="When you click links to various merchants on this site and make a purchase, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network.">
-    ADVERTISEMENT</p>
-  </div>
+    <div class="affiliate-info">
+      <p title="When you click links to various merchants on this site and make a purchase, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network.">
+      ADVERTISEMENT ⓘ</p>
+    </div>
+      
 
-  <div class="ebay-ad-content">
-    <div class="ebay-ad-thumbnail">
-      <img class="ebay-ad-thumbnail-img" src="{{image_url}}" alt="{{title}}">
+    <a href="https://ebay.com/itm/{{legacy_id}}?mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid={{epn}}&toolid=1001">
+    <div class="ebay-ad-content">
+      <img class="ebay-logo-thumbnail" src="/plugins/discourse-ebay-ads/images/ebay.png">
+
+      <div class="ebay-ad-thumbnail">
+        <img class="ebay-ad-thumbnail-img" src="{{image_url}}" alt="{{title}}">
+      </div>
+
+      <div class="ebay-ad-info">
+
+        <div class="ebay-ad-item-info">
+
+          <div class="ebay-ad-title">
+            <h2>{{title}}</h2>
+          </div>
+          <div class="ebay-ad-price">
+            {{price}} {{currency}}
+          </div>
+        </div>
+
+        <div class="ebay-ad-seller-info">
+          {{seller}} ({{feedback_score}}) <br> {{feedback_percent}}% feedback
+        </div>
+        
+      </div>
     </div>
-    <div class="ebay-ad-title">
-      <h2>{{title}}</h2>
-    </div>
-    <div class="ebay-ad-price">
-      {{price}}
-    </div>
-    <div class="ebay-ad-seller">
-      {{seller_id}} ({{feedback_number}})
-    </div>
-  </div>
+  </a>
 
   </div>
 
