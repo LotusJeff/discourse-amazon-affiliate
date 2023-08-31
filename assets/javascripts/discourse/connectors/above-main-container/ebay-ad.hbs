@@ -1,6 +1,6 @@
 {{#if valid}}
 
-  <div class="ebay-ad">
+  <div class="ebay-ad-container">
 
     <div class="affiliate-info">
       <p title="When you click links to various merchants on this site and make a purchase, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network.">
@@ -9,7 +9,7 @@
       
 
     <a href="https://ebay.com/itm/{{legacy_id}}?mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid={{epn}}&toolid=1001">
-    <div class="ebay-ad-content">
+    <div class="ebay-ad-banner">
       <img class="ebay-logo-thumbnail" src="/plugins/discourse-ebay-ads/images/ebay.png">
 
       <div class="ebay-ad-thumbnail">
@@ -21,7 +21,7 @@
         <div class="ebay-ad-item-info">
 
           <div class="ebay-ad-title">
-            <h2>{{title}}</h2>
+            {{title}}
           </div>
           <div class="ebay-ad-price">
             {{price}} {{currency}}

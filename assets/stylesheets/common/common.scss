@@ -1,17 +1,6 @@
-.ebay-ad-thumbnail-img{
-  height: 100px;
-}
-.ebay-logo-thumbnail{
-  height: 100px;
-}
-
-.ebay-ad-info{
+.ebay-ad-container{
   display: flex;
-}
-.ebay-ad-item-info{
-  padding: 10px;
-}
-.ebay-ad-seller-info{
+  flex-direction: column;
   padding: 10px;
 }
 
@@ -20,14 +9,48 @@
   font-size:12px;
 }
 
-.ebay-ad{
-  display: flex;
-  flex-direction: column;
-  padding: 10px;
-}
-.ebay-ad-content{
+.ebay-ad-banner{
   display: flex;
   border-style: solid;
   border-color: #858a8c;
   border-width: 2px;
+  height: 100px;
+  font-family: 'Tahoma', sans-serif;
+  background-color: rgba(128, 128, 128, 0.2); 
+
 }
+
+.ebay-logo-thumbnail{
+  height: 100px;
+  width: 100px;
+}
+.ebay-ad-thumbnail-img{
+  height: 100px;
+  width: 100px;
+  object-fit: contain;
+  object-position: left;
+}
+
+.ebay-ad-info{
+  display: flex;
+  overflow: hidden;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+}
+.ebay-ad-item-info{
+  padding: 10px;
+  flex: 4;
+}
+.ebay-ad-title{
+  font-size: x-large;
+}
+
+.ebay-ad-seller-info{
+  white-space: nowrap;
+  padding: 10px;
+  flex: 1;
+  background-color: rgba(128, 128, 128, 0.1); 
+  border-radius: 2px;
+}
+

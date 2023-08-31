@@ -23,8 +23,7 @@ module EbayAdPlugin::EbayAPI
 
         scope = "https://api.ebay.com/oauth/api_scope"
         
-        #todo: change to production
-        uri = URI.parse("https://api.sandbox.ebay.com/identity/v1/oauth2/token")
+        uri = URI.parse("https://api.ebay.com/identity/v1/oauth2/token")
         
         header = {"Content-Type": "application/x-www-form-urlencoded"}
         header["Authorization"] = "Basic " + Base64.strict_encode64("#{client_id}:#{client_secret}")
@@ -71,10 +70,7 @@ module EbayAdPlugin::EbayAPI
             update_token()
         end
 
-        # Define the endpoint URL
-
-        #todo: change to production
-        url = "https://api.sandbox.ebay.com/buy/browse/v1/item/get_item_by_legacy_id?legacy_item_id=#{item_id}"
+        url = "https://api.ebay.com/buy/browse/v1/item/get_item_by_legacy_id?legacy_item_id=#{item_id}"
 
         uri = URI(url)
         http = Net::HTTP.new(uri.host, uri.port)

@@ -15,7 +15,7 @@ register_asset 'stylesheets/common/common.scss'
 after_initialize do
 
   module ::EbayAdPlugin
-    PLUGIN_NAME = "ebay-ads"
+    PLUGIN_NAME = "discourse-ebay-ads"
   end
 
   class EbayAdPlugin::Engine < ::Rails::Engine
