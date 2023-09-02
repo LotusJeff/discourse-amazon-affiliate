@@ -6,13 +6,13 @@
       <p title="When you click links to various merchants on this site and make a purchase, this can result in this site earning a commission. Affiliate programs and affiliations include, but are not limited to, the eBay Partner Network.">
       ADVERTISEMENT ⓘ</p>
     </div>
-      
+
 
     <a href="https://ebay.com/itm/{{legacy_id}}?mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid={{epn}}&toolid=1001">
-    <div class="ebay-ad-banner">
-      <img class="ebay-logo-thumbnail" src="/plugins/discourse-ebay-ads/images/ebay.png">
-
-      <div class="ebay-ad-thumbnail">
+    <div class="ebay-ad-banner" style="height:100px ; width: 100%">
+      
+      <div class="ebay-ad-images">
+        <img class="ebay-ad-thumbnail-logo" src="/plugins/discourse-ebay-ads/images/ebay.png">
         <img class="ebay-ad-thumbnail-img" src="{{image_url}}" alt="{{title}}">
       </div>
 
@@ -29,7 +29,8 @@
         </div>
 
         <div class="ebay-ad-seller-info">
-          {{seller}} ({{feedback_score}}) <br> {{feedback_percent}}% feedback
+          <div class="ebay-ad-seller-info-name">{{seller}} ({{feedback_score}})</div> 
+          <div class="ebay-ad-seller-info-percent">{{feedback_percent}}% feedback</div> 
         </div>
         
       </div>

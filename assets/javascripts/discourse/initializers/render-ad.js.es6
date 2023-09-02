@@ -12,35 +12,42 @@ export default {
   },
 };
 
-function generateAd(api, siteSettings) {
-  api.registerConnectorClass('above-main-container', 'ebay-ad', {
-    setupComponent(attrs, component) {
+function renderAd(component){
 
-    ajax("/ebay.json")
-    .then((result) => {
-      
-      if (result.id == null){
-        component.setProperties({"valid": false});
-      }
-      else{
-        component.setProperties({
-          "valid" : true,
-          "legacy_id": result.legacy_id,
-          "title": result.title,
-          "price": parseFloat(result.price).toFixed(2),
-          "currency": result.currency,
-          "location": result.location,
-
-          "image_url":result.image_url,
-          "seller": result.seller,
-          "feedback_score": result.feedback_score,
-          "feedback_percent": result.feedback_percent,
-          "epn": result.epn_id
-        });
-
-      }
+  ajax("/ebay.json")
+  .then((result) => {
     
-    }).catch(popupAjaxError);
-    },
+    if (result.id == null){
+      component.setProperties({"valid": false});
+    }
+    else{
+      component.setProperties({
+        "valid" : true,
+        "legacy_id": result.legacy_id,
+        "title": result.title,
+        "price": parseFloat(result.price).toFixed(2),
+        "currency": result.currency,
+        "location": result.location,
+
+        "image_url":result.image_url,
+        "seller": result.seller,
+        "feedback_score": result.feedback_score,
+        "feedback_percent": result.feedback_percent,
+        "epn": result.epn_id
+      });
+    }
+
+  }).catch(popupAjaxError);
+
+    return component;
+}
+
+function generateAd(api, siteSettings) {
+  api.registerConnectorClass('discovery-list-container-top', 'ebay-ad', {
+    setupComponent(attrs, component) { component = renderAd(component); },
   });
+  api.registerConnectorClass('topic-above-post-stream', 'ebay-ad', {
+    setupComponent(attrs, component) { component = renderAd(component); },
+  });
+
 }

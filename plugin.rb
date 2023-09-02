@@ -9,8 +9,8 @@
 
 enabled_site_setting :enable_ebay_ads
 
-register_asset 'stylesheets/common/common.scss'
-#register_asset 'stylesheets/mobile/mobile.scss', :mobile
+register_asset 'stylesheets/desktop/desktop.scss', :desktop
+register_asset 'stylesheets/mobile/mobile.scss', :mobile
 
 after_initialize do
 

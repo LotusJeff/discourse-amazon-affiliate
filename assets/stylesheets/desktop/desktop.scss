@@ -20,7 +20,12 @@
 
 }
 
-.ebay-logo-thumbnail{
+.ebay-ad-images{
+  display: flex;
+  background-color: black;
+}
+
+.ebay-ad-thumbnail-logo{
   height: 100px;
   width: 100px;
 }
@@ -28,7 +33,7 @@
   height: 100px;
   width: 100px;
   object-fit: contain;
-  object-position: left;
+  object-position: center;
 }
 
 .ebay-ad-info{
@@ -43,7 +48,11 @@
   flex: 4;
 }
 .ebay-ad-title{
-  font-size: x-large;
+  font-size: large;
+  font-weight: bold;
+}
+.ebay-ad-price{
+  font-size: small;
 }
 
 .ebay-ad-seller-info{
