@@ -2,7 +2,7 @@ affiliate_id:
   type: string
   default: 0000000000
   description:
-    en: English text
+    en: eBay affiliate ID
     ar: معرّف الشريك في eBay
     bs_BA: eBay partnerski ID
     ca: ID d'afiliat d'eBay
