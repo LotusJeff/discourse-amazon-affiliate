@@ -1,7 +1,4 @@
-
 <script type="text/discourse-plugin" version="0.8.42">
-    const affiliateId = "5338700715"; //"5338450246";
-    const affiliateText = "As an eBay Partner, this forum may be compensated if you make a purchase";
 
     function getBaseUrl(url) {
         const match = url.match(/^[^/]+:\/\/([^/?#]+)/);
@@ -59,8 +56,9 @@
     function convertToAffiliate(url) {
         const hostname = getBaseUrl(url);
         const rotationId = getRotationId(url);
-    
-        if (hostname && rotationId) {
+    	const affiliateId = settings.affiliate_id;
+    	
+        if (affiliateId && hostname && rotationId) {
             if (url.includes("/itm/")) {
                 // Handle item listing URLs
                 const listingId = getEbayListingId(url);
@@ -89,7 +87,7 @@
         let adTag = document.createElement('span');
         adTag.classList.add('ebay-affiliate-disclaimer-ad')
         adTag.textContent = '#ad';
-        adTag.title = affiliateText;
+        adTag.title = settings.affiliate_text;
         return adTag;
     }
     
@@ -108,7 +106,7 @@
                 if (el.parentNode.classList.contains('source')) {
                     let affiliateNote = document.createElement('span');
                     affiliateNote.classList.add('ebay-affiliate-disclaimer-label')
-                    affiliateNote.textContent = affiliateText;
+                    affiliateNote.textContent = settings.affiliate_text;
                     el.parentNode.insertBefore(affiliateNote, el.nextSibling);
         
                 } else {
@@ -172,7 +170,7 @@
             const h = require("virtual-dom").h;
             return h('span', {
                 className: 'ebay-affiliate-disclaimer-ad',
-                title: affiliateText
+                title: settings.affiliate_text
                 }, '#ad');
         }
     });
