@@ -1,0 +1,181 @@
+
+<script type="text/discourse-plugin" version="0.8.42">
+    const affiliateId = "5338700715"; //"5338450246";
+    const affiliateText = "As an eBay Partner, this forum may be compensated if you make a purchase";
+
+    function getBaseUrl(url) {
+        const match = url.match(/^[^/]+:\/\/([^/?#]+)/);
+        if (match === null) { return null; }
+        return match[1]
+    }
+    
+    function getEbayListingId(url) {
+        let matches = url.match(/\/itm\/(\d+)\?/);
+      
+        if (matches == null){
+            matches = url.match(/\/itm\/(\d+)/);
+        }
+        if (matches == null){
+            matches = url.match(/\/(\d+)\?/);
+        }
+      
+        return matches ? matches[1] : null;;
+    }
+    
+    function getEbayStoreOrUserName(url) {
+        const matches = url.match(/\/(str|usr)\/([^/?#]+)/);
+        return matches ? matches[2] : null; 
+    }
+
+    function getRotationId(url) {
+
+        const hostname = getBaseUrl(url);
+        if (hostname == null){ return null; }
+        const parts = hostname.split('.');
+        const tld = parts[parts.length - 1];
+
+        var rotIds = {
+          "at": "5221-53469-19255-0",
+          "au": "705-53470-19255-0",
+          "be": "1553-53471-19255-0",
+          "ca": "706-53473-19255-0",
+          "ch": "5222-53480-19255-0",
+          "de": "707-53477-19255-0",
+          "es": "1185-53479-19255-0",
+          "fr": "709-53476-19255-0",
+          "ie": "5282-53468-19255-0",
+          "uk": "710-53481-19255-0",
+          "it": "724-53478-19255-0",
+          "nl": "1346-53482-19255-0",
+          "pl": "4908-226936-19255-0",
+          "com": "711-53200-19255-0"
+        };
+    
+        //console.log(url, rotIds[tld]);
+        return rotIds[tld];
+    }
+    
+    
+    function convertToAffiliate(url) {
+        const hostname = getBaseUrl(url);
+        const rotationId = getRotationId(url);
+    
+        if (hostname && rotationId) {
+            if (url.includes("/itm/")) {
+                // Handle item listing URLs
+                const listingId = getEbayListingId(url);
+                if (listingId) {
+                    return `https://${hostname}/itm/${listingId}?mkevt=1&mkcid=1&mkrid=${rotationId}&campid=${affiliateId}&toolid=1001`;
+                }
+            } else if (url.includes("/str/")) {
+                // Handle store URLs
+                const storeName = getEbayStoreOrUserName(url);
+                if (storeName) {
+                    return `https://${hostname}/str/${storeName}?mkevt=1&mkcid=1&mkrid=${rotationId}&campid=${affiliateId}&toolid=1001`;
+                }
+            } else if (url.includes("/usr/")) {
+                // Handle user URLs
+                const username = getEbayStoreOrUserName(url);
+                if (username) {
+                    return `https://${hostname}/usr/${username}?mkevt=1&mkcid=1&mkrid=${rotationId}&campid=${affiliateId}&toolid=1001`;
+                }
+            }
+        }
+        return null;
+    }
+        
+
+    function generateAdTag(){
+        let adTag = document.createElement('span');
+        adTag.classList.add('ebay-affiliate-disclaimer-ad')
+        adTag.textContent = '#ad';
+        adTag.title = affiliateText;
+        return adTag;
+    }
+    
+
+
+    api.decorateCookedElement(element => {
+        
+        const ebayLinks = element.querySelectorAll('a[href*="ebay."]');
+        ebayLinks.forEach(function (el) {
+            const newURL = convertToAffiliate(el.href);
+            
+            if(newURL){
+                el.href = newURL;
+        
+                // Check if the parent has a class 'source'
+                if (el.parentNode.classList.contains('source')) {
+                    let affiliateNote = document.createElement('span');
+                    affiliateNote.classList.add('ebay-affiliate-disclaimer-label')
+                    affiliateNote.textContent = affiliateText;
+                    el.parentNode.insertBefore(affiliateNote, el.nextSibling);
+        
+                } else {
+                    const adTag = generateAdTag();
+                    el.parentNode.insertBefore(adTag, el);
+                }
+            }
+        });
+    }, {
+        onlyStream: true
+    });
+    
+    //https://github.com/discourse/discourse/blob/abad38c2e7d41de5c770fe5f813cae07f25c4f86/app/assets/javascripts/discourse/app/widgets/topic-map.js
+    api.reopenWidget("topic-map-link", {
+
+        buildAttributes(attrs) {
+            // Convert eBay URLs to affiliate links
+            if (attrs.url && attrs.url.includes("ebay.")) {
+                const affiliateURL = convertToAffiliate(attrs.url);
+                if(affiliateURL){
+                    attrs.url = convertToAffiliate(attrs.url);
+                }
+            }
+            
+            return {
+                href: attrs.url,
+                target: "_blank",
+                "data-user-id": attrs.user_id,
+                "data-ignore-post-id": "true",
+                title: attrs.url,
+                rel: "nofollow ugc noopener",
+            };
+        },
+        
+
+        html(attrs) {
+            const h = require("virtual-dom").h;
+            const replaceEmoji = require("discourse/widgets/emoji").replaceEmoji;
+
+            let adTag = null;
+            if (attrs.url && attrs.url.includes("ebay.")) {
+                const affiliateURL = convertToAffiliate(attrs.url);
+                if (affiliateURL && affiliateURL.includes("campid")){
+                    adTag = this.generateVirtualAdTag();
+                }
+            }
+            
+            let content = attrs.title || attrs.url;
+            content = attrs.title ? replaceEmoji(content) : content;
+            
+            const truncateLength = 85;
+
+            if (content.length > truncateLength) {
+              content = `${content.slice(0, truncateLength).trim()}...`;
+            }
+            
+            return [adTag, content];            
+        },
+        
+        generateVirtualAdTag() {
+            const h = require("virtual-dom").h;
+            return h('span', {
+                className: 'ebay-affiliate-disclaimer-ad',
+                title: affiliateText
+                }, '#ad');
+        }
+    });
+
+
+</script>
