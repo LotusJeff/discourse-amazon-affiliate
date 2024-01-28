@@ -1,6 +1,6 @@
 affiliate_id:
   type: string
-  default: 
+  default: 0000000000
   description:
     en: English text
     ar: معرّف الشريك في eBay
