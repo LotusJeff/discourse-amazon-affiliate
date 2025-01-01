@@ -1,17 +1,21 @@
-us_affiliate_id:
-  type: string
-  default: 0000000000
-  description:
-    en: Amazon US affiliate ID
-
-uk_affiliate_id:
-  type: string
-  default: 0000000000
-  description:
-    en: Amazon Uk affiliate ID
-    
-affiliate_text:
-  type: string
-  default: As an Amazon Partner, this forum may be compensated if you make a purchase
-  description:
-    en: Disclaimer text
+discourse_amazon_affiliate:
+  affiliate_enabled:
+    default: true
+    client: true
+    description:
+      en: Enable the Affiliate plugin. If you change this, you must rebake all posts with: "rake posts:rebake".
+  affiliate_amazon_com:
+    default: ""
+    client: true
+    description:
+      en: Amazon US affiliate ID
+  affiliate_amazon_uk:
+    default: ""
+    client: true
+    description:
+      en: Amazon Uk affiliate ID
+  affiliate_text:
+    type: string
+    default: As an Amazon Partner, this forum may be compensated if you make a purchase
+    description:
+      en: Disclaimer text
