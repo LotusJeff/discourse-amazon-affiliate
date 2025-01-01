@@ -1,16 +1,15 @@
-# Discourse Ebay Affiliate Theme Component
+# Discourse Amazon Affiliate Theme Component
 
-> Discourse Meta topic: https://meta.discourse.org/t/ebay-epn-affiliate-link-generator/292012
+> Discourse Meta topic: 
 
-This theme component *replaces* eBay links with affiliate links and *discloses* when this has happened
+This theme component *replaces* Amazon links with affiliate links and *discloses* when this has happened
 
-Requirement: you will need an EPN account https://partnernetwork.ebay.com/
-Add your EPN affiliate ID in the settings. 
+Requirement: you will need an Amazon Affiliate Account for the US. This also supports having a UK affiliate account.  
 
-`https://www.ebay.com/itm/[item id]`
+`https://www.amazon.com/dp/[ASIN]`
 
 :arrow_down: 
 
-`https://www.ebay.com/itm/[item id]?mkevt=1&mkcid=1&mkrid=711-53200-19255-0&campid=[affiliate id]&toolid=1001`
+https://www.amazon.com/dp/[ASIN]?tag=[affliate id]
 
-This component will replace /itm/ /usr/ and /str/ eBay URLs.
+This component will replace /ASIN/ /affliate_id/ for Amazon URLs.
