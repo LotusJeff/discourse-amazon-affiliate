@@ -1,87 +1,17 @@
-affiliate_id:
+us_affiliate_id:
   type: string
   default: 0000000000
   description:
-    en: eBay affiliate ID
-    ar: معرّف الشريك في eBay
-    bs_BA: eBay partnerski ID
-    ca: ID d'afiliat d'eBay
-    cs: ID affiliate společnosti eBay
-    da: eBay partner ID
-    de: eBay-Partner-ID
-    el: ID συνεργάτη του eBay
-    es: ID de afiliado de eBay
-    et: eBay sidusettevõtte ID
-    fa_IR: شناسه وابسته eBay
-    fi: eBayn kumppani-ID
-    fr: Identifiant d'affilié eBay
-    gl: ID de afiliado de eBay
-    he: מזהה שותף של eBay
-    id: ID afiliasi eBay
-    it: ID affiliato eBay
-    ja: eBayアフィリエイトID
-    ko: 이베이 제휴 ID
-    lv: eBay filiāles ID
-    nb_NO: eBay-partner-ID
-    nl: eBay-affiliate-ID
-    pl_PL: ID partnera eBay
-    pt: ID de afiliado do eBay
-    pt_BR: ID de afiliado do eBay
-    ro: ID afiliat eBay
-    ru: ID аффилиата eBay
-    sk: ID affiliate spoločnosti eBay
-    sq: ID e përafërt e eBay
-    sr: eBay ID partnera
-    sv: eBay-affiliate-ID
-    te: eBay అనుబంధ ID
-    th: รหัสพันธมิตร eBay
-    tr_TR: eBay ortaklık kimliği
-    uk: ID афілійованого eBay
-    ur: ای بے کے وابستہ شناخت
-    vi: ID liên kết eBay
-    zh_CN: eBay联盟ID
-    zh_TW: eBay聯盟ID
+    en: Amazon US affiliate ID
+
+uk_affiliate_id:
+  type: string
+  default: 0000000000
+  description:
+    en: Amazon Uk affiliate ID
     
 affiliate_text:
   type: string
-  default: As an eBay Partner, this forum may be compensated if you make a purchase
+  default: As an Amazon Partner, this forum may be compensated if you make a purchase
   description:
     en: Disclaimer text
-    ar: نص إخلاء المسؤولية
-    bs_BA: Tekst odricanja
-    ca: Text de la renúncia
-    cs: Text prohlášení
-    da: Ansvarsfraskrivelsestekst
-    de: Haftungsausschlusstext
-    el: Κείμενο αποποίησης ευθύνης
-    es: Texto de descargo de responsabilidad
-    et: Vastutusest loobumise tekst
-    fa_IR: متن سلب مسئولیت
-    fi: Vastuuvapauslausekkeen teksti
-    fr: Texte de non-responsabilité
-    gl: Texto de descargo de responsabilidade
-    he: טקסט הבהרת נטילת אחריות
-    id: Teks penolakan
-    it: Testo di disclaimer
-    ja: 免責事項のテキスト
-    ko: 면책 조항의 텍스트
-    lv: Atbrīvojuma teksts
-    nb_NO: Ansvarsfraskrivelsestekst
-    nl: Disclaimer tekst
-    pl_PL: Tekst zastrzeżenia
-    pt: Texto de isenção de responsabilidade
-    pt_BR: Texto de isenção de responsabilidade
-    ro: Text de declinare a responsabilității
-    ru: Текст отказа от ответственности
-    sk: Text zrieknutia sa zodpovednosti
-    sq: Teksti i përjashtimit të përgjegjësisë
-    sr: Текст одрицања одговорности
-    sv: Friskrivningstext
-    te: డిస్‌క్లెయిమర్ టెక్స్ట్
-    th: ข้อความปฏิเสธความรับผิด
-    tr_TR: Feragat metni
-    uk: Текст відмови від відповідальності
-    ur: ڈسکلیمر کا متن
-    vi: Văn bản từ chối trách nhiệm
-    zh_CN: 免责声明文本
-    zh_TW: 免責聲明文字
