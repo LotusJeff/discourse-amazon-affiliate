@@ -6,7 +6,7 @@
         return match[1]
     }
     
-    function getEbayListingId(url) {
+    function getamazonListingId(url) {
         let matches = url.match(/\/itm\/(\d+)\?/);
       
         if (matches == null){
@@ -19,7 +19,7 @@
         return matches ? matches[1] : null;;
     }
     
-    function getEbayStoreOrUserName(url) {
+    function getamazonStoreOrUserName(url) {
         const matches = url.match(/\/(str|usr)\/([^/?#]+)/);
         return matches ? matches[2] : null; 
     }
@@ -61,19 +61,19 @@
         if (affiliateId && hostname && rotationId) {
             if (url.includes("/itm/")) {
                 // Handle item listing URLs
-                const listingId = getEbayListingId(url);
+                const listingId = getamazonListingId(url);
                 if (listingId) {
                     return `https://${hostname}/itm/${listingId}?mkevt=1&mkcid=1&mkrid=${rotationId}&campid=${affiliateId}&toolid=1001`;
                 }
             } else if (url.includes("/str/")) {
                 // Handle store URLs
-                const storeName = getEbayStoreOrUserName(url);
+                const storeName = getamazonStoreOrUserName(url);
                 if (storeName) {
                     return `https://${hostname}/str/${storeName}?mkevt=1&mkcid=1&mkrid=${rotationId}&campid=${affiliateId}&toolid=1001`;
                 }
             } else if (url.includes("/usr/")) {
                 // Handle user URLs
-                const username = getEbayStoreOrUserName(url);
+                const username = getamazonStoreOrUserName(url);
                 if (username) {
                     return `https://${hostname}/usr/${username}?mkevt=1&mkcid=1&mkrid=${rotationId}&campid=${affiliateId}&toolid=1001`;
                 }
@@ -95,8 +95,8 @@
 
     api.decorateCookedElement(element => {
         
-        const ebayLinks = element.querySelectorAll('a[href*="ebay."]');
-        ebayLinks.forEach(function (el) {
+        const amazonLinks = element.querySelectorAll('a[href*="amazon."]');
+        amazonLinks.forEach(function (el) {
             const newURL = convertToAffiliate(el.href);
             
             if(newURL){
@@ -105,7 +105,7 @@
                 // Check if the parent has a class 'source'
                 if (el.parentNode.classList.contains('source')) {
                     let affiliateNote = document.createElement('span');
-                    affiliateNote.classList.add('ebay-affiliate-disclaimer-label')
+                    affiliateNote.classList.add('amazon-affiliate-disclaimer-label')
                     affiliateNote.textContent = settings.affiliate_text;
                     el.parentNode.insertBefore(affiliateNote, el.nextSibling);
         
