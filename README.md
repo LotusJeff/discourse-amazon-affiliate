@@ -10,6 +10,6 @@ Requirement: you will need an Amazon Affiliate Account for the US. This also sup
 
 :arrow_down: 
 
-https://www.amazon.com/dp/[ASIN]?tag=[affliate id]
+`https://www.amazon.com/dp/[ASIN]?tag=[affliate id]`
 
 This component will replace /ASIN/ /affliate_id/ for Amazon URLs.
