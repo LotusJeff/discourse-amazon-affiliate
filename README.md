@@ -1,6 +1,6 @@
 # Discourse Amazon Affiliate Theme Component
 
-> Discourse Meta topic: 
+> Discourse Meta topic: TBD
 
 This theme component *replaces* Amazon links with affiliate links and *discloses* when this has happened
 
