@@ -1,6 +1,6 @@
-# Discourse Ebay Affiliate Theme Component
+# Discourse Ebay Affiliate - Theme Component
 
-> Discourse Meta topic: https://meta.discourse.org/t/ebay-epn-affiliate-link-generator/292012
+https://meta.discourse.org/t/ebay-epn-affiliate-link-generator/292012
 
 This theme component *replaces* eBay links with affiliate links and *discloses* when this has happened
 
