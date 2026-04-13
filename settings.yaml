@@ -3,19 +3,134 @@ discourse_amazon_affiliate:
     default: true
     client: true
     description:
-      en: Enable the Affiliate plugin. If you change this, you must rebake all posts with: "rake posts:rebake".
+      en: Enable Amazon affiliate link rewriting. If you change this, you must rebake all posts with "rake posts:rebake".
+
+  affiliate_text:
+    type: string
+    default: "As an Amazon Partner, this forum may be compensated if you make a purchase"
+    client: true
+    description:
+      en: Disclaimer text shown on rewritten links
+
+  # --- Regional affiliate tags ---
+  # Leave a region blank to skip rewriting links for that Amazon storefront.
+
   affiliate_amazon_com:
     default: ""
     client: true
     description:
-      en: Amazon US affiliate ID
+      en: "Amazon US affiliate tag (amazon.com)"
+
   affiliate_amazon_uk:
     default: ""
     client: true
     description:
-      en: Amazon Uk affiliate ID
-  affiliate_text:
-    type: string
-    default: As an Amazon Partner, this forum may be compensated if you make a purchase
+      en: "Amazon UK affiliate tag (amazon.co.uk)"
+
+  affiliate_amazon_ca:
+    default: ""
+    client: true
     description:
-      en: Disclaimer text
+      en: "Amazon Canada affiliate tag (amazon.ca)"
+
+  affiliate_amazon_de:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Germany affiliate tag (amazon.de)"
+
+  affiliate_amazon_fr:
+    default: ""
+    client: true
+    description:
+      en: "Amazon France affiliate tag (amazon.fr)"
+
+  affiliate_amazon_it:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Italy affiliate tag (amazon.it)"
+
+  affiliate_amazon_es:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Spain affiliate tag (amazon.es)"
+
+  affiliate_amazon_com_au:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Australia affiliate tag (amazon.com.au)"
+
+  affiliate_amazon_co_jp:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Japan affiliate tag (amazon.co.jp)"
+
+  affiliate_amazon_in:
+    default: ""
+    client: true
+    description:
+      en: "Amazon India affiliate tag (amazon.in)"
+
+  affiliate_amazon_com_mx:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Mexico affiliate tag (amazon.com.mx)"
+
+  affiliate_amazon_com_br:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Brazil affiliate tag (amazon.com.br)"
+
+  affiliate_amazon_nl:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Netherlands affiliate tag (amazon.nl)"
+
+  affiliate_amazon_pl:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Poland affiliate tag (amazon.pl)"
+
+  affiliate_amazon_se:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Sweden affiliate tag (amazon.se)"
+
+  affiliate_amazon_sg:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Singapore affiliate tag (amazon.sg)"
+
+  affiliate_amazon_ae:
+    default: ""
+    client: true
+    description:
+      en: "Amazon UAE affiliate tag (amazon.ae)"
+
+  affiliate_amazon_sa:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Saudi Arabia affiliate tag (amazon.sa)"
+
+  affiliate_amazon_com_tr:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Turkey affiliate tag (amazon.com.tr)"
+
+  affiliate_amazon_com_be:
+    default: ""
+    client: true
+    description:
+      en: "Amazon Belgium affiliate tag (amazon.com.be)"
