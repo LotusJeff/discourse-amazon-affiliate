@@ -4,12 +4,12 @@
 
 This theme component *replaces* Amazon links with affiliate links and *discloses* when this has happened
 
-Requirement: you will need an Amazon Affiliate Account for the US. This also supports having a UK affiliate account.  
+Requirement: you will need an Amazon Affiliate Account. Separate affiliate tags are supported for each major Amazon regional storefront (US, UK, Canada, Germany, France, Italy, Spain, Australia, Japan, India, and more).
 
 `https://www.amazon.com/dp/[ASIN]`
 
-:arrow_down: 
+:arrow_down:
 
-`https://www.amazon.com/dp/[ASIN]?tag=[affliate id]`
+`https://www.amazon.com/dp/[ASIN]?tag=[affiliate tag]`
 
-This component will replace /ASIN/ /affliate_id/ for Amazon URLs.
+This component will append the `?tag=` affiliate parameter to Amazon URLs across all configured regional storefronts.
