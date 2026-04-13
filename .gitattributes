@@ -1,0 +1,4 @@
+# Always discard the upstream eBay initializer when merging from
+# ScottMastro/discourse-ebay-affiliate. This repo runs alongside the
+# eBay plugin, so ebay-affiliate.js must never appear here.
+javascripts/discourse/initializers/ebay-affiliate.js merge=ours

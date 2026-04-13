@@ -70,6 +70,14 @@ Changes pushed to the `main` branch of this GitHub repo are automatically pulled
 
 This component is based on the eBay affiliate plugin at https://github.com/ScottMastro/discourse-ebay-affiliate. Monitor that repo for significant logic changes (URL handling, `api.decorateCookedElement` usage, disclosure insertion) and port relevant updates.
 
+When merging from upstream, `.gitattributes` is configured to automatically discard `javascripts/discourse/initializers/ebay-affiliate.js` in favour of our version (an absent file). This requires the `ours` merge driver to be registered once per machine:
+
+```
+git config merge.ours.driver true
+```
+
+This is already set on the current machine. Any new clone will need this command run once before merging from upstream.
+
 ## Implementation History
 
 This component was originally written for eBay affiliate links and has been migrated to Amazon. The eBay plugin at https://github.com/ScottMastro/discourse-ebay-affiliate is the upstream reference. Key differences between eBay and Amazon affiliate implementations:
