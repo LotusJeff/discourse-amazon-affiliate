@@ -1,5 +1,9 @@
 # Discourse Amazon Affiliate Theme Component
 
+> **ARCHIVED** — This component is no longer maintained. Discourse now includes built-in affiliate link support that provides this capability natively. This repository is kept for historical reference only.
+
+---
+
 > Discourse Meta topic: TBD
 
 This theme component *replaces* Amazon links with affiliate links and *discloses* when this has happened
